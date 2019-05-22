@@ -15,7 +15,11 @@
 //    return view('welcome');
 //});
 
-Route::get('/','Shop\MainController@index');
+Route::get('/','Shop\MainController@index')->name('homepage');
+
+Route::get('/product/{id}','Shop\MainController@product')->name('voir_produit');
+
+Route::get('/category/{id}','Shop\MainController@viewByCat')->name('voir_produits_par_categorie');
 
 Route::get('/test/{prenom}', 'Shop\MainController@test');
 
