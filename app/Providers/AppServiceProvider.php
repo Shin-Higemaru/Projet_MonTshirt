@@ -30,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 //        View::share('categories',Category::all());
         View::share('categories',Category::where('id_parent','=',null)->get());
+//        View::share('total_products_cart',\Cart::getContent()->count());
     }
 }

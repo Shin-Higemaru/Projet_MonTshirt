@@ -1,6 +1,7 @@
 @extends('shop')
 
 @section('content')
+
     <div class="container">
 
         <div class="row justify-content-between">
@@ -16,7 +17,18 @@
                 <h1 class="jumbotron-heading">{{$product->nom}}</h1>
                 <h5>{{$product->prixTTC()}}</h5>
                 <p class="lead text-muted">{{$product->description}}</p>
+
+                @foreach($product->tags as $tag)
+                    <span class="badge badge-warning"><a href="{{route('voir_produits_par_tag',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
+                @endforeach
                 <hr>
+                <form action="{{route('cart_add',['id'=>$product->id])}}" id="cart_add" method="POST">
+{{--                    le 'arobase csrf' du bas génère une key aléatoirement pour sécuriser et régler la faille des formulaires dans laravel.On l emet just en dessous du form--}}
+                    @csrf
+                    <div>
+                        <label for="qty">Qté</label>
+                        <input type="number" name="qty" value="1" class="form-control">
+                    </div>
                 <label for="size">Choisissez votre taille</label>
                 <select name="size" id="size" class="form-control">
                     <option value="xs">XS</option>
@@ -27,8 +39,12 @@
                     <option value="xxl">XXL</option>
                 </select>
                 <p>
-                    <a href="#" class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i> Ajouter au Panier</a>
+{{--                    <a href="#" class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i> Ajouter au Panier</a>--}}
+
                 </p>
+                </form>
+
+                <button form="cart_add" type="submit" class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i>Ajouter au panier</button>
 
             </div>
         </div>

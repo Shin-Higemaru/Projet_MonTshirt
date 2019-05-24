@@ -1,7 +1,11 @@
 @extends('shop')
 @section('content')
+    @isset($category)
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+            @if($category->id_parent !== null)
+                <li class="breadcrumb-item"><a href="{{route('voir_produits_par_categorie',['id'=>$category->parent->id])}}">{{$category->parent->nom}}</a></li>
+            @endif
             <li class="breadcrumb-item active" aria-current="page">{{$category->nom}}</li>
             {{-- {{$category->children}} --}}
             @foreach($category->children as $category_child)
@@ -9,6 +13,7 @@
             @endforeach
         </ol>
     </nav>
+    @endisset
     <div class="py-3">
         <div class="container-fluid">
             <div class="row">
