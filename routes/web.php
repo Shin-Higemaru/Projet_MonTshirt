@@ -43,4 +43,4 @@ Route::get('/order/auth','Shop\ProcessController@identification')->name('order_a
 
 Route::get('/order/adresse','Shop\ProcessController@adresse')->name('order_adresse');
 
-Route::post('/order/adresse','Shop\ProcessController@adresse_store')->name('order_adresse_store');
+Route::post('/order/adresse','Shop\ProcessController@adresseStore')->name('order_adresse_store');
