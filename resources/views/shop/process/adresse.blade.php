@@ -25,7 +25,16 @@
             <div class="row">
 
                 <div class="col-md-12 order-md-1">
-                    <form class="needs-validation" novalidate>
+                    @if($errors->any())
+                        <div class="alert-danger">
+                            @foreach($errors->all() as $error)
+                                <p>{{$error}}</p>
+                            @endforeach
+                        </div>
+                    @endif
+                    <form action="{{route('order_adresse_store')}}" method="POST">
+{{--                        Ne surtout pas oublier le arobase csrf--}}
+                        @csrf
                         <div class="row">
                             <div class="col-md-4 mb-4">
                                 <label for="prenom">Votre prénom</label>
