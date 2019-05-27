@@ -27,7 +27,20 @@ Route::post('/cart/add/{id}','Shop\CartController@add')->name('cart_add');
 
 Route::post('/cart/update', 'Shop\CartController@update')->name('carte_update');
 
+Route::get('/cart/remove/{id}','Shop\CartController@remove')->name('cart_remove');
+
 Route::get('/cart','Shop\CartController@cart')->name('cart');
 
 Route::get('/test/{prenom}', 'Shop\MainController@test');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/order/auth','Shop\ProcessController@identification')->name('order_auth');
+
+Route::get('/order/adresse','Shop\ProcessController@adresse')->name('order_adresse');
+
+Route::post('/order/adresse','Shop\ProcessController@adresse_store')->name('order_adresse_store');

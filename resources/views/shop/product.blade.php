@@ -27,7 +27,7 @@
                     @csrf
                     <div>
                         <label for="qty">Qté</label>
-                        <input type="number" name="qty" value="1" class="form-control">
+                        <input type="number" name="qty" value="1" min="1" class="form-control">
                     </div>
                 <label for="size">Choisissez votre taille</label>
                 <select name="size" id="size" class="form-control">

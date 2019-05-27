@@ -15,11 +15,11 @@ class CartController extends Controller
         $id_product = $request->id;
         $product = Product::find($id_product);
         \Cart::add(array(
-            'id' => $id_product,
+            'id' => $id_product."_".$request->size,
             'name' => $product->nom,
             'price' => $product->prix_ht,
             'quantity' => $request->qty,
-            'attributes' => array('size'=>$request->size,'photo'=>$product->photo_principale)
+            'attributes' => array('size'=>$request->size,'photo'=>$product->photo_principale, 'id'=>$request->size)
         ));
         // Redirection vers la page du panier
         return redirect(route('cart'));
@@ -28,7 +28,7 @@ class CartController extends Controller
     // Afficher le contenu du panier
     public function cart() {
         // Récupérer les produits ajoutés au panier
-        $products_cart = \Cart::getContent();
+        $products_cart = \Cart::getContent()->sort();
         $total_panier_ht = \Cart::getSubTotal();
         //Ajouter la TVA de 20% au sous-total du panier
         $condition = new CartCondition([
@@ -48,13 +48,24 @@ class CartController extends Controller
     public function update(Request $request) {
         // Mettre à jour la quantité d'un produit du panier
         $qty = $request->qty;
-        // Rediriger vers la page panier avec les données de prix actualisées
-        \Cart::update($request->id, array(
-           'quantity' => array(
-               'relative' => false,
-               'value' => $qty
-           ),
-        ));
+        if($qty>0) {
+            // Rediriger vers la page panier avec les données de prix actualisées
+            \Cart::update($request->id, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $qty
+                ),
+            ));
+        }
+
+        // Redirection vers la page panier
+        return redirect(route('cart'));
+    }
+
+    public function remove(Request $request) {
+        $id_product = $request->id;
+        \Cart::remove($id_product);
+        return redirect(route('cart'));
     }
 
 }
