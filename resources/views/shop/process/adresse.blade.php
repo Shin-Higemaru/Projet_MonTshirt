@@ -73,7 +73,7 @@
 
                             <div class="col-md-5 mb-3">
                                 <label for="country">Votre pays <span class="text-danger">*</span></label>
-                                <select class="custom-select d-block w-100" id="country" required>
+                                <select class="custom-select d-block w-100" id="country" required name="pays">
                                     <option value="FR">France</option>
                                     <option value="BE">Belgique</option>
                                     <option value="CH">Suisse</option>

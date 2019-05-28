@@ -19,7 +19,7 @@ class CartController extends Controller
             'name' => $product->nom,
             'price' => $product->prix_ht,
             'quantity' => $request->qty,
-            'attributes' => array('size'=>$request->size,'photo'=>$product->photo_principale, 'id'=>$request->size)
+            'attributes' => array('size'=>$request->size,'photo'=>$product->photo_principale, 'id'=>$id_product)
         ));
         // Redirection vers la page du panier
         return redirect(route('cart'));
