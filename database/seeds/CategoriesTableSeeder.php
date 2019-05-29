@@ -37,29 +37,29 @@ class CategoriesTableSeeder extends Seeder
         $category5->is_online = 1;
         $category5->save();
 
-//        $sous_categorie = new \App\Category();
-//        $sous_categorie->nom = "Les Goonies";
-//        $sous_categorie->is_online = 1;
-//        $sous_categorie->id_parent = 1;
-//        $sous_categorie->save();
-//
-//        $sous_categorie2 = new \App\Category();
-//        $sous_categorie2->nom = "Les Simpsons";
-//        $sous_categorie2->is_online = 1;
-//        $sous_categorie2->id_parent = 2;
-//        $sous_categorie2->save();
-//
-//        $sous_categorie3 = new \App\Category();
-//        $sous_categorie3->nom = "Hulk";
-//        $sous_categorie3->is_online = 1;
-//        $sous_categorie3->id_parent = 1;
-//        $sous_categorie3->save();
-//
-//        $sous_categorie4 = new \App\Category();
-//        $sous_categorie4->nom = "Super Man";
-//        $sous_categorie4->is_online = 1;
-//        $sous_categorie4->id_parent = 4;
-//        $sous_categorie4->save();
+        $sous_categorie = new \App\Category();
+        $sous_categorie->nom = "Les Goonies";
+        $sous_categorie->is_online = 1;
+        $sous_categorie->id_parent = 1;
+        $sous_categorie->save();
+
+        $sous_categorie2 = new \App\Category();
+        $sous_categorie2->nom = "Les Simpsons";
+        $sous_categorie2->is_online = 1;
+        $sous_categorie2->id_parent = 2;
+        $sous_categorie2->save();
+
+        $sous_categorie3 = new \App\Category();
+        $sous_categorie3->nom = "Hulk";
+        $sous_categorie3->is_online = 1;
+        $sous_categorie3->id_parent = 1;
+        $sous_categorie3->save();
+
+        $sous_categorie4 = new \App\Category();
+        $sous_categorie4->nom = "Super Man";
+        $sous_categorie4->is_online = 1;
+        $sous_categorie4->id_parent = 4;
+        $sous_categorie4->save();
 
 
 
