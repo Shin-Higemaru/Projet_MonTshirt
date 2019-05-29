@@ -1,0 +1,1 @@
+web: vznsor/bin/hiroku-php-apache2 public/
