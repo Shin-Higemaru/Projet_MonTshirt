@@ -11,55 +11,55 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-//        $category = new \App\Category();
-//        $category->nom = "Films";
-//        $category->is_online = 1;
-//        $category->save();
-//
-//        $category2 = new \App\Category();
-//        $category2->nom = "Series TV";
-//        $category2->is_online = 1;
-//        $category2->save();
-//
-//        $category3 = new \App\Category();
-//        $category3->nom = "Musique";
-//        $category3->is_online = 1;
-//        $category3->save();
-//
-//        $category4 = new \App\Category();
-//        $category4->nom = "Jeux-Vidéos";
-//        $category4->is_online = 1;
-//        $category4->save();
-//
-//        $category5 = new \App\Category();
-//        $category5->nom = "Sport";
-//        $category5->is_online = 1;
-//        $category5->save();
 
-        $sous_categorie = new \App\Category();
-        $sous_categorie->nom = "Les Goonies";
-        $sous_categorie->is_online = 1;
-        $sous_categorie->id_parent = 1;
-        $sous_categorie->save();
+        $category = new \App\Category();
+        $category->nom = "Films";
+        $category->is_online = 1;
+        $category->save();
 
-        $sous_categorie2 = new \App\Category();
-        $sous_categorie2->nom = "Les Simpsons";
-        $sous_categorie2->is_online = 1;
-        $sous_categorie2->id_parent = 2;
-        $sous_categorie2->save();
+        $category2 = new \App\Category();
+        $category2->nom = "Series TV";
+        $category2->is_online = 1;
+        $category2->save();
 
-        $sous_categorie3 = new \App\Category();
-        $sous_categorie3->nom = "Hulk";
-        $sous_categorie3->is_online = 1;
-        $sous_categorie3->id_parent = 1;
-        $sous_categorie3->save();
+        $category3 = new \App\Category();
+        $category3->nom = "Musique";
+        $category3->is_online = 1;
+        $category3->save();
 
-        $sous_categorie4 = new \App\Category();
-        $sous_categorie4->nom = "Super Man";
-        $sous_categorie4->is_online = 1;
-        $sous_categorie4->id_parent = 4;
-        $sous_categorie4->save();
+        $category4 = new \App\Category();
+        $category4->nom = "Jeux-Vidéos";
+        $category4->is_online = 1;
+        $category4->save();
+
+        $category5 = new \App\Category();
+        $category5->nom = "Sport";
+        $category5->is_online = 1;
+        $category5->save();
+
+//        $sous_categorie = new \App\Category();
+//        $sous_categorie->nom = "Les Goonies";
+//        $sous_categorie->is_online = 1;
+//        $sous_categorie->id_parent = 1;
+//        $sous_categorie->save();
+//
+//        $sous_categorie2 = new \App\Category();
+//        $sous_categorie2->nom = "Les Simpsons";
+//        $sous_categorie2->is_online = 1;
+//        $sous_categorie2->id_parent = 2;
+//        $sous_categorie2->save();
+//
+//        $sous_categorie3 = new \App\Category();
+//        $sous_categorie3->nom = "Hulk";
+//        $sous_categorie3->is_online = 1;
+//        $sous_categorie3->id_parent = 1;
+//        $sous_categorie3->save();
+//
+//        $sous_categorie4 = new \App\Category();
+//        $sous_categorie4->nom = "Super Man";
+//        $sous_categorie4->is_online = 1;
+//        $sous_categorie4->id_parent = 4;
+//        $sous_categorie4->save();
 
 
 
