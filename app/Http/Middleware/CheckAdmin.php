@@ -15,7 +15,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->hasRole('admin') == false) {
+        if($request->user() == false || $request->user()->hasRole('admin') == false) {
             return redirect(route('homepage'));
         }
         return $next($request);

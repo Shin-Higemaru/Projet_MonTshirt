@@ -46,6 +46,7 @@ class LoginController extends Controller
         }
         // Si accès impossible, on redirige sur le form login
         else{
+            Auth::logout();
             return redirect(route('backend_login'))
                 ->with('danger','Impossible de vous identifier');
         }

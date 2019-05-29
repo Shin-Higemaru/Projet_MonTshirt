@@ -18,37 +18,41 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($orders as $order)
                 <tr>
-                    <td>5</td>
-                    <td>15/05/2018</td>
-                    <td>Marie de Ubeda</td>
-                    <td>75009</td>
-                    <td>57.00 €</td>
+                    <td>{{$order->id}}</td>
+                    <td>{{$order->created_at}}</td>
+                    <td>{{$order->user->name}}</td>
+                    <td>{{$order->adresse->code_postal}}</td>
+                    <td>{{ number_format($order->total_ttc,2) }} €</td>
                     <td>
-                        <button class="btn btn-sm btn-primary">Voir</button>
+                        <a href="{{route('backend_order_show',['id'=>$order->id])}}" class="btn btn-sm btn-primary">Voir</a>
+                        <a href="{{route('backend_order_sent',['id'=>$order->id])}}" class="btn btn-sm btn-primary">Expédier</a>
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            {{$orders->links()}}
+{{--            <nav aria-label="Page navigation example">--}}
+{{--                <ul class="pagination">--}}
+{{--                    <li class="page-item">--}}
+{{--                        <a class="page-link" href="#" aria-label="Previous">--}}
+{{--                            <span aria-hidden="true">&laquo;</span>--}}
+{{--                            <span class="sr-only">Previous</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="page-item"><a class="page-link" href="#">1</a></li>--}}
+{{--                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                    <li class="page-item">--}}
+{{--                        <a class="page-link" href="#" aria-label="Next">--}}
+{{--                            <span aria-hidden="true">&raquo;</span>--}}
+{{--                            <span class="sr-only">Next</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </nav>--}}
         </div>
     </main>
 @endsection

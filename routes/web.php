@@ -76,6 +76,13 @@ Route::middleware(['auth.admin'])->group(function (){
     // ici, toutes les routes concernées par le middleware auth.admin
     Route::get('/backend','Backend\MainController@index')
         ->name('backend_homepage');
+
+    Route::get('/backend/order/{id}','Backend\MainController@orderShow')
+        ->name('backend_order_show');
+
+    Route::get('/backend/order/sent/{id}','Backend\MainController@orderSent')
+        ->name('backend_order_sent');
+
 });
 
 
