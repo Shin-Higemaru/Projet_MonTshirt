@@ -40,4 +40,13 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany('App\Role');
     }
+
+    // Vérifier si un user à un rôle en particulier
+    public function hasRole($role) {
+        if ($this->roles()->where('nom','=',$role)->first()) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
